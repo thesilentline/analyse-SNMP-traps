@@ -3,6 +3,7 @@ import json
 import logging
 from trap_mail import generate_mail
 from data_processing import decoding_snmp_traps
+from database import store_trap_messages
 
 ip_address = ''
 port = 164
@@ -24,6 +25,7 @@ def process_snmp_traps(trap_data):
 
     print(f"Message: {message}")
     generate_mail(message)
+    store_trap_messages(message)
 
     logging.basicConfig(
     filename='snmp_traps.log',
