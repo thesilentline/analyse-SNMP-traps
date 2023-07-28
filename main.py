@@ -60,7 +60,7 @@ def process_snmp_traps(trap_data):
         else:
             super_logger.warning(f"{location} {timesnmpreceived} {senderip} DOWN")
         message = f"{message} The router in the {location} has gone DOWN. Please check the router. Thank you!"
-        # generate_mail(message)
+        generate_mail(message)
         test_func(">>> Email sent!")
         print(oid_pair_dictionary[".1.3.6.1.4.1.9.9.513.1.1.1.1.5.0"])
 
@@ -72,7 +72,7 @@ def process_snmp_traps(trap_data):
         if(present):
             delete_row_from_log_file(row)
         message = f"{message} The router in the {location} is fine now. Thank you!"
-        # generate_mail(message)
+        generate_mail(message)
         test_func(">>> Email sent!")
         print(oid_pair_dictionary[".1.3.6.1.4.1.9.9.513.1.1.1.1.5.0"])
 
